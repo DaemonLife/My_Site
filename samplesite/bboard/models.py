@@ -33,4 +33,6 @@ class Rubric(models.Model):
         verbose_name = 'Rubric'
         ordering = ['name']
 
+
+
     

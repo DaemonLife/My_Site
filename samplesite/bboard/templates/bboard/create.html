@@ -1,27 +1,16 @@
-<!DOCTYPE html>
-<html>
+{% extends 'layout/basic.html' %}
 
-    <head>
-        <meta http-equiv="Content-Type"
-        content="text/html; charset=utf-8">
-        <title>Creating ads - Ad's board</title>
-    </head>
-    <body>
-        <h1>Creating ads</h1>
-        
-        <div>
-            <a href="{% url 'index' %}">Main</a>
-            {% for rubric in rubrics %}
-                <a href="{% url 'by_rubric' rubric.pk %}">
-                {{ rubric.name }}</a>
-            {% endfor %}
-        </div>
-        <form methode='POST'>
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type='submit' value="Submit form">
-        </form>    
-        </div>
-    </body>
+{% block title %}
+Creating ads
+{% endblock  %}
 
-</html>
+{% block content %}
+    <h2>Creating ads</h2>
+
+    <form methode='POST'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type='submit' value="Submit form">
+    </form>
+
+{% endblock content %}
